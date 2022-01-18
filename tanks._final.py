@@ -1,7 +1,6 @@
 import os
 import pygame
 import random
-import uuid
 import sys
 
 
@@ -21,17 +20,8 @@ class Timer(object):
             "repeat" : repeat,
             "times" : 0,
             "time" : 0,
-            "uuid" : uuid.uuid4()
         }
         self.timers.append(options)
-
-        return options["uuid"]
-
-    def destroy(self, uuid_nr):
-        for timer in self.timers:
-            if timer["uuid"] == uuid_nr:
-                self.timers.remove(timer)
-                return
 
     def update(self, time_passed):
         for timer in self.timers:
